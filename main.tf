@@ -37,7 +37,7 @@ locals {
 ################################################################################
 
 module "eks" {
-  source = "../.."
+  source = "terraform-aws-modules/eks/aws"
 
   cluster_name                   = local.name
   cluster_version                = local.cluster_version
