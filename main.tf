@@ -83,7 +83,7 @@ module "eks" {
 
   eks_managed_node_group_defaults = {
     ami_type       = "AL2_x86_64"
-    instance_types = ["m6i.large", "m5.large", "m5n.large", "m5zn.large"]
+    instance_types = ["m6i.large", "m5.large", "m5n.large", "m5zn.large", "t3.medium"]
 
     # We are using the IRSA created below for permissions
     # However, we have to deploy with the policy attached FIRST (when creating a fresh cluster)
@@ -179,7 +179,7 @@ module "eks" {
       # Note: this assumes the AMI provided is an EKS optimized AMI derivative
       enable_bootstrap_user_data = true
 
-      instance_types = ["t4g.medium"]
+      instance_types = ["t3.medium"]
     }
 
     # Complete
@@ -190,7 +190,7 @@ module "eks" {
       subnet_ids = module.vpc.private_subnets
 
       min_size     = 1
-      max_size     = 7
+      max_size     = 2
       desired_size = 1
 
       ami_id                     = data.aws_ami.eks_default.image_id
@@ -206,7 +206,7 @@ module "eks" {
 
       capacity_type        = "SPOT"
       force_update_version = true
-      instance_types       = ["m6i.large", "m5.large", "m5n.large", "m5zn.large"]
+      instance_types       = ["m6i.large", "m5.large", "m5n.large", "m5zn.large", "t3.medium"]
       labels = {
         GithubRepo = "terraform-aws-eks"
         GithubOrg  = "terraform-aws-modules"
@@ -234,9 +234,9 @@ module "eks" {
         xvda = {
           device_name = "/dev/xvda"
           ebs = {
-            volume_size           = 75
+            volume_size           = 50
             volume_type           = "gp3"
-            iops                  = 3000
+            iops                  = 150
             throughput            = 150
             encrypted             = true
             kms_key_id            = module.ebs_kms_key.key_arn
