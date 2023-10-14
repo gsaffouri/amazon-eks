@@ -83,7 +83,7 @@ module "eks" {
 
   eks_managed_node_group_defaults = {
     ami_type       = "AL2_x86_64"
-    instance_types = ["m6i.large", "m5.large", "m5n.large", "m5zn.large", "t3.medium"]
+    instance_types = ["t3.medium"]
 
     # We are using the IRSA created below for permissions
     # However, we have to deploy with the policy attached FIRST (when creating a fresh cluster)
@@ -167,20 +167,20 @@ module "eks" {
       EOT
     }
 
-    # Use a custom AMI
-    custom_ami = {
-      ami_type = "AL2_ARM_64"
-      # Current default AMI used by managed node groups - pseudo "custom"
-      ami_id = data.aws_ami.eks_default_arm.image_id
+    # # Use a custom AMI
+    # custom_ami = {
+    #   ami_type = "AL2_ARM_64"
+    #   # Current default AMI used by managed node groups - pseudo "custom"
+    #   ami_id = data.aws_ami.eks_default_arm.image_id
 
-      # This will ensure the bootstrap user data is used to join the node
-      # By default, EKS managed node groups will not append bootstrap script;
-      # this adds it back in using the default template provided by the module
-      # Note: this assumes the AMI provided is an EKS optimized AMI derivative
-      enable_bootstrap_user_data = true
+    #   # This will ensure the bootstrap user data is used to join the node
+    #   # By default, EKS managed node groups will not append bootstrap script;
+    #   # this adds it back in using the default template provided by the module
+    #   # Note: this assumes the AMI provided is an EKS optimized AMI derivative
+    #   enable_bootstrap_user_data = true
 
-      instance_types = ["t3.medium"]
-    }
+    #   instance_types = ["t3.medium"]
+    # }
 
     # Complete
     complete = {
@@ -206,7 +206,7 @@ module "eks" {
 
       capacity_type        = "SPOT"
       force_update_version = true
-      instance_types       = ["m6i.large", "m5.large", "m5n.large", "m5zn.large", "t3.medium"]
+      instance_types       = ["t3.medium"]
       labels = {
         GithubRepo = "terraform-aws-eks"
         GithubOrg  = "terraform-aws-modules"
@@ -264,26 +264,26 @@ module "eks" {
         additional                         = aws_iam_policy.node_additional.arn
       }
 
-      schedules = {
-        scale-up = {
-          min_size     = 2
-          max_size     = "-1" # Retains current max size
-          desired_size = 2
-          start_time   = "2023-03-05T00:00:00Z"
-          end_time     = "2024-03-05T00:00:00Z"
-          time_zone    = "Etc/GMT+0"
-          recurrence   = "0 0 * * *"
-        },
-        scale-down = {
-          min_size     = 0
-          max_size     = "-1" # Retains current max size
-          desired_size = 0
-          start_time   = "2023-03-05T12:00:00Z"
-          end_time     = "2024-03-05T12:00:00Z"
-          time_zone    = "Etc/GMT+0"
-          recurrence   = "0 12 * * *"
-        }
-      }
+      # schedules = {
+      #   scale-up = {
+      #     min_size     = 2
+      #     max_size     = "-1" # Retains current max size
+      #     desired_size = 2
+      #     start_time   = "2023-03-05T00:00:00Z"
+      #     end_time     = "2024-03-05T00:00:00Z"
+      #     time_zone    = "Etc/GMT+0"
+      #     recurrence   = "0 0 * * *"
+      #   },
+      #   scale-down = {
+      #     min_size     = 0
+      #     max_size     = "-1" # Retains current max size
+      #     desired_size = 0
+      #     start_time   = "2023-03-05T12:00:00Z"
+      #     end_time     = "2024-03-05T12:00:00Z"
+      #     time_zone    = "Etc/GMT+0"
+      #     recurrence   = "0 12 * * *"
+      #   }
+      # }
 
       tags = {
         ExtraTag = "EKS managed node group complete example"
