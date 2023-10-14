@@ -100,7 +100,10 @@ module "eks" {
       # so we need to disable it to use the default template provided by the AWS EKS managed node group service
       use_custom_launch_template = false
 
-      disk_size = 50
+      disk_size    = 50
+      desired_size = 2
+      min_size     = 2
+      max_size     = 3
 
       # Remote access cannot be specified with a launch template
       remote_access = {
