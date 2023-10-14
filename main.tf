@@ -109,63 +109,63 @@ module "eks" {
       }
     }
 
-    # Default node group - as provided by AWS EKS using Bottlerocket
-    bottlerocket_default = {
-      # By default, the module creates a launch template to ensure tags are propagated to instances, etc.,
-      # so we need to disable it to use the default template provided by the AWS EKS managed node group service
-      use_custom_launch_template = false
+    # # Default node group - as provided by AWS EKS using Bottlerocket
+    # bottlerocket_default = {
+    #   # By default, the module creates a launch template to ensure tags are propagated to instances, etc.,
+    #   # so we need to disable it to use the default template provided by the AWS EKS managed node group service
+    #   use_custom_launch_template = false
 
-      ami_type = "BOTTLEROCKET_x86_64"
-      platform = "bottlerocket"
-    }
+    #   ami_type = "BOTTLEROCKET_x86_64"
+    #   platform = "bottlerocket"
+    # }
 
-    # Adds to the AWS provided user data
-    bottlerocket_add = {
-      ami_type = "BOTTLEROCKET_x86_64"
-      platform = "bottlerocket"
+    # # Adds to the AWS provided user data
+    # bottlerocket_add = {
+    #   ami_type = "BOTTLEROCKET_x86_64"
+    #   platform = "bottlerocket"
 
-      # This will get added to what AWS provides
-      bootstrap_extra_args = <<-EOT
-        # extra args added
-        [settings.kernel]
-        lockdown = "integrity"
-      EOT
-    }
+    #   # This will get added to what AWS provides
+    #   bootstrap_extra_args = <<-EOT
+    #     # extra args added
+    #     [settings.kernel]
+    #     lockdown = "integrity"
+    #   EOT
+    # }
 
-    # Custom AMI, using module provided bootstrap data
-    bottlerocket_custom = {
-      # Current bottlerocket AMI
-      ami_id   = data.aws_ami.eks_default_bottlerocket.image_id
-      platform = "bottlerocket"
+    # # Custom AMI, using module provided bootstrap data
+    # bottlerocket_custom = {
+    #   # Current bottlerocket AMI
+    #   ami_id   = data.aws_ami.eks_default_bottlerocket.image_id
+    #   platform = "bottlerocket"
 
-      # Use module user data template to bootstrap
-      enable_bootstrap_user_data = true
-      # This will get added to the template
-      bootstrap_extra_args = <<-EOT
-        # The admin host container provides SSH access and runs with "superpowers".
-        # It is disabled by default, but can be disabled explicitly.
-        [settings.host-containers.admin]
-        enabled = false
+    #   # Use module user data template to bootstrap
+    #   enable_bootstrap_user_data = true
+    #   # This will get added to the template
+    #   bootstrap_extra_args = <<-EOT
+    #     # The admin host container provides SSH access and runs with "superpowers".
+    #     # It is disabled by default, but can be disabled explicitly.
+    #     [settings.host-containers.admin]
+    #     enabled = false
 
-        # The control host container provides out-of-band access via SSM.
-        # It is enabled by default, and can be disabled if you do not expect to use SSM.
-        # This could leave you with no way to access the API and change settings on an existing node!
-        [settings.host-containers.control]
-        enabled = true
+    #     # The control host container provides out-of-band access via SSM.
+    #     # It is enabled by default, and can be disabled if you do not expect to use SSM.
+    #     # This could leave you with no way to access the API and change settings on an existing node!
+    #     [settings.host-containers.control]
+    #     enabled = true
 
-        # extra args added
-        [settings.kernel]
-        lockdown = "integrity"
+    #     # extra args added
+    #     [settings.kernel]
+    #     lockdown = "integrity"
 
-        [settings.kubernetes.node-labels]
-        label1 = "foo"
-        label2 = "bar"
+    #     [settings.kubernetes.node-labels]
+    #     label1 = "foo"
+    #     label2 = "bar"
 
-        [settings.kubernetes.node-taints]
-        dedicated = "experimental:PreferNoSchedule"
-        special = "true:NoSchedule"
-      EOT
-    }
+    #     [settings.kubernetes.node-taints]
+    #     dedicated = "experimental:PreferNoSchedule"
+    #     special = "true:NoSchedule"
+    #   EOT
+    # }
 
     # # Use a custom AMI
     # custom_ami = {
@@ -439,25 +439,25 @@ data "aws_ami" "eks_default" {
   }
 }
 
-data "aws_ami" "eks_default_arm" {
-  most_recent = true
-  owners      = ["amazon"]
+# data "aws_ami" "eks_default_arm" {
+#   most_recent = true
+#   owners      = ["amazon"]
 
-  filter {
-    name   = "name"
-    values = ["amazon-eks-arm64-node-${local.cluster_version}-v*"]
-  }
-}
+#   filter {
+#     name   = "name"
+#     values = ["amazon-eks-arm64-node-${local.cluster_version}-v*"]
+#   }
+# }
 
-data "aws_ami" "eks_default_bottlerocket" {
-  most_recent = true
-  owners      = ["amazon"]
+# data "aws_ami" "eks_default_bottlerocket" {
+#   most_recent = true
+#   owners      = ["amazon"]
 
-  filter {
-    name   = "name"
-    values = ["bottlerocket-aws-k8s-${local.cluster_version}-x86_64-*"]
-  }
-}
+#   filter {
+#     name   = "name"
+#     values = ["bottlerocket-aws-k8s-${local.cluster_version}-x86_64-*"]
+#   }
+# }
 
 ################################################################################
 # Tags for the ASG to support cluster-autoscaler scale up from 0
