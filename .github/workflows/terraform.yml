@@ -70,6 +70,7 @@ on:
 
 env:
   AWS_REGION: us-east-1
+  AWS_ACCOUNT_ID: 009730527137
 
 permissions:
   id-token: write # This is required for requesting the JWT
@@ -90,8 +91,8 @@ jobs:
       with:
         aws-region: ${{ env.AWS_REGION }}
         # aws-region: us-east-1
-        # role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/github
-        role-to-assume: arn:aws:iam::009730527137:role/github
+        role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/github
+        # role-to-assume: arn:aws:iam::009730527137:role/github
         role-session-name: GitHub_to_AWS_via_FederatedOIDC
     # Hello from AWS: WhoAmI
     - name: Sts GetCallerIdentity
