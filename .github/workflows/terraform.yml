@@ -68,8 +68,12 @@ on:
         type: environment
         required: true
 
+env:
+  AWS_REGION: us-east-1
+
 permissions:
-  contents: read
+  id-token: write # This is required for requesting the JWT
+  contents: read # This is required for actions/checkout
 
 jobs:
   caller-identity:
@@ -84,11 +88,15 @@ jobs:
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
-        # aws-region: ${{ env.AWS_REGION }}
-        aws-region: us-east-1
+        aws-region: ${{ env.AWS_REGION }}
+        # aws-region: us-east-1
         # role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/github
         role-to-assume: arn:aws:iam::362619573276:role/github
-    - run: aws sts get-caller-identity
+        role-session-name: GitHub_to_AWS_via_FederatedOIDC
+    # Hello from AWS: WhoAmI
+    - name: Sts GetCallerIdentity
+      run: |
+        aws sts get-caller-identity
   
   # terraform:
   #   name: 'Terraform'
