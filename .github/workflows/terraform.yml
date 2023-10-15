@@ -69,7 +69,7 @@ on:
         required: true
 
 env:
-  AWS_REGION: us-east-1
+  AWS_REGION: "us-east-1"
   AWS_ACCOUNT_ID: "009730527137"
 
 permissions:
