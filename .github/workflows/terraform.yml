@@ -97,20 +97,20 @@ jobs:
       run: |
         aws sts get-caller-identity
   
-  terraform:
-    name: 'Terraform'
-    runs-on: ubuntu-latest
-    environment: production
+  # terraform:
+  #   name: 'Terraform'
+  #   runs-on: ubuntu-latest
+    # environment: production
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
-    defaults:
-      run:
-        shell: bash
+    # defaults:
+    #   run:
+    #     shell: bash
 
-    steps:
+    # steps:
     # Checkout the repository to the GitHub Actions runner
-    - name: Checkout
-      uses: actions/checkout@v3
+    # - name: Checkout
+    #   uses: actions/checkout@v3
 
     # Hello from AWS: WhoAmI
     - name: Sts GetCallerIdentity
