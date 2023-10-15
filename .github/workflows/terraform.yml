@@ -86,7 +86,8 @@ jobs:
       with:
         # aws-region: ${{ env.AWS_REGION }}
         aws-region: us-east-1
-        role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/github
+        # role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/github
+        role-to-assume: arn:aws:iam::362619573276:role/github
     - run: aws sts get-caller-identity
   
   # terraform:
