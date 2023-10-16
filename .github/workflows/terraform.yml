@@ -44,6 +44,10 @@
 
 name: 'Terraform'
 
+env:
+  AWS_REGION: "us-east-1"
+  AWS_ACCOUNT_ID: "416656901077"
+
 on:
   push:
     branches: [ "main" ]
@@ -68,20 +72,16 @@ on:
         type: environment
         required: true
 
-env:
-  AWS_REGION: "us-east-1"
-  AWS_ACCOUNT_ID: "416656901077"
-
 permissions:
   id-token: write # This is required for requesting the JWT
   contents: read # This is required for actions/checkout
 
 jobs:
-  caller-identity:
-    name: Check caller identity
-    permissions:
-      contents: read
-      id-token: write
+  terraform:
+    name: 'Terraform'
+    # permissions:
+    #   contents: read
+    #   id-token: write
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
@@ -112,11 +112,6 @@ jobs:
     # - name: Checkout
     #   uses: actions/checkout@v3
 
-    # Hello from AWS: WhoAmI
-    - name: Sts GetCallerIdentity
-      run: |
-        aws sts get-caller-identity
-
     # - name: Configure AWS credentials
     #   uses: aws-actions/configure-aws-credentials@v2
     #   with:
@@ -130,11 +125,6 @@ jobs:
       with:
         terraform_version: 1.5.7
         # cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-
-    # Hello from AWS: WhoAmI
-    - name: Sts GetCallerIdentity
-      run: |
-        aws sts get-caller-identity
     
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
