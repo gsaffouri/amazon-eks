@@ -105,6 +105,14 @@ module "eks" {
 
   manage_aws_auth_configmap = true
 
+  aws_auth_users = [
+    {
+      userarn  = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"
+      username = "root"
+      groups   = ["system:masters"]
+    },
+  ]
+
   eks_managed_node_group_defaults = {
     ami_type       = "AL2_x86_64"
     instance_types = ["t3.medium"]
