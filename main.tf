@@ -41,6 +41,8 @@ locals {
   cluster_version = "1.27"
   region          = "us-east-1"
 
+  arn = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"
+
   vpc_cidr = "10.0.0.0/16"
   azs      = slice(data.aws_availability_zones.available.names, 0, 3)
 
@@ -61,6 +63,9 @@ module "eks" {
   cluster_name                   = local.name
   cluster_version                = local.cluster_version
   cluster_endpoint_public_access = true
+
+  # KMS
+  kms_key_owners = [local.arn]
 
   # IPV6
   cluster_ip_family = "ipv6"
