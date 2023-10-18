@@ -46,7 +46,7 @@ name: 'Terraform'
 
 env:
   AWS_REGION: "us-east-1"
-  AWS_ACCOUNT_ID: "787339431038" # Ensure the AWS Account is accurate!
+  AWS_ACCOUNT_ID: "UPDATE_ME" # Ensure the AWS Account is accurate!
 
 on:
   push:
