@@ -21,11 +21,3 @@ sed -i "s/UPDATE_ME/$BUCKET_NAME/g" main.tf
 git add .
 git commit -m "Updated with new s3 bucket name and account ID"
 git push
-
-
-
-
-# # Initialize and apply
-# terraform init
-# # terraform apply --auto-approve
-# terraform plan
