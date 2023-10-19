@@ -9,7 +9,7 @@ terraform {
 
   # Remote state configs
   backend "s3" {
-    bucket         = "terraform-remote-state-1a6b61a4"
+    bucket         = "terraform-remote-state-f42b7549"
     key            = "eks/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
@@ -68,7 +68,7 @@ module "eks" {
   kms_key_owners = [local.arn]
 
   # IPV6
-  cluster_ip_family = "ipv6"
+  # cluster_ip_family = "ipv6"
 
   # We are using the IRSA created below for permissions
   # However, we have to deploy with the policy attached FIRST (when creating a fresh cluster)
@@ -76,7 +76,8 @@ module "eks" {
   # the VPC CNI fails to assign IPs and nodes cannot join the cluster
   # See https://github.com/aws/containers-roadmap/issues/1666 for more context
   # TODO - remove this policy once AWS releases a managed version similar to AmazonEKS_CNI_Policy (IPv4)
-  create_cni_ipv6_iam_policy = true
+  
+  # create_cni_ipv6_iam_policy = true
 
   cluster_addons = {
     coredns = {
@@ -166,15 +167,15 @@ module "vpc" {
 
   enable_nat_gateway     = true
   single_nat_gateway     = true
-  enable_ipv6            = true
+  # enable_ipv6            = true
   create_egress_only_igw = true
 
-  public_subnet_ipv6_prefixes                    = [0, 1, 2]
-  public_subnet_assign_ipv6_address_on_creation  = true
-  private_subnet_ipv6_prefixes                   = [3, 4, 5]
-  private_subnet_assign_ipv6_address_on_creation = true
-  intra_subnet_ipv6_prefixes                     = [6, 7, 8]
-  intra_subnet_assign_ipv6_address_on_creation   = true
+  # public_subnet_ipv6_prefixes                    = [0, 1, 2]
+  # public_subnet_assign_ipv6_address_on_creation  = true
+  # private_subnet_ipv6_prefixes                   = [3, 4, 5]
+  # private_subnet_assign_ipv6_address_on_creation = true
+  # intra_subnet_ipv6_prefixes                     = [6, 7, 8]
+  # intra_subnet_assign_ipv6_address_on_creation   = true
 
   public_subnet_tags = {
     "kubernetes.io/role/elb" = 1
@@ -193,7 +194,7 @@ module "vpc_cni_irsa" {
 
   role_name_prefix      = "VPC-CNI-IRSA"
   attach_vpc_cni_policy = true
-  vpc_cni_enable_ipv6   = true
+  # vpc_cni_enable_ipv6   = true
 
   oidc_providers = {
     main = {
@@ -257,7 +258,7 @@ resource "aws_security_group" "remote_access" {
     to_port          = 0
     protocol         = "-1"
     cidr_blocks      = ["0.0.0.0/0"]
-    ipv6_cidr_blocks = ["::/0"]
+    # ipv6_cidr_blocks = ["::/0"]
   }
 
   tags = merge(local.tags, { Name = "${local.name}-remote" })
