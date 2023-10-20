@@ -19,5 +19,5 @@ sed -i "s/UPDATE_ME/$BUCKET_NAME/g" main.tf
 
 # Execute pipeline via pushing to changes to the main branch
 git add .
-git commit -m "Updated with new s3 bucket name and account ID"
+git commit -m "Work In Progress..."
 git push
