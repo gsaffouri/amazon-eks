@@ -236,7 +236,7 @@ module "ebs_kms_key" {
 
   tags = local.tags
 
-  depends_on = [ module.eks ]
+  depends_on = [module.eks]
 }
 
 module "key_pair" {
