@@ -143,12 +143,13 @@ module "eks" {
         ec2_ssh_key               = module.key_pair.key_pair_name
         source_security_group_ids = [aws_security_group.remote_access.id]
       }
-
-      iam_role_additional_policies = [
-        "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
-      ]
     }
   }
+
+  # Permissions required for SSM Session Manager
+  iam_role_additional_policies = [
+    "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+  ]
 
   tags = local.tags
 }
