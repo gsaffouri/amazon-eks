@@ -240,6 +240,15 @@ module "key_pair" {
   tags = local.tags
 }
 
+resource "aws_secretsmanager_secret" "key-pair" {
+  name = eks-managed-node-key-pair
+}
+
+resource "aws_secretsmanager_secret_version" "key-pair" {
+  secret_id     = aws_secretsmanager_secret.key-pair.id
+  secret_string = module.key_pair.private_key_pem
+}
+
 resource "aws_security_group" "remote_access" {
   name_prefix = "${local.name}-remote-access"
   description = "Allow remote SSH access"

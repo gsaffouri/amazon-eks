@@ -9,7 +9,7 @@ terraform {
 
   # Remote state configs
   backend "s3" {
-    bucket         = "terraform-remote-state-e9cbe97f"
+    bucket         = "terraform-remote-state-a687e668"
     key            = "eks/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
@@ -238,6 +238,15 @@ module "key_pair" {
   create_private_key = true
 
   tags = local.tags
+}
+
+resource "aws_secretsmanager_secret" "key-pair" {
+  name = eks-managed-node-key-pair
+}
+
+resource "aws_secretsmanager_secret_version" "key-pair" {
+  secret_id     = aws_secretsmanager_secret.key-pair.id
+  secret_string = module.key_pair.private_key_pem
 }
 
 resource "aws_security_group" "remote_access" {
