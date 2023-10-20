@@ -9,7 +9,7 @@ terraform {
 
   # Remote state configs
   backend "s3" {
-    bucket         = "terraform-remote-state-d6117dfa"
+    bucket         = "terraform-remote-state-e99a1465"
     key            = "eks/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
@@ -235,6 +235,8 @@ module "ebs_kms_key" {
   aliases = ["eks/${local.name}/ebs"]
 
   tags = local.tags
+
+  depends_on = [ module.eks ]
 }
 
 module "key_pair" {
