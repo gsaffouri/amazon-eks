@@ -1,6 +1,7 @@
 #!/bin/bash -e
 
-# Only run this script once during initial bootstrapping
+# Run this script during initial deployment
+# To make/test changes, edit the resources/main.tf file and re-run this script
 
 # Return the aws account ID
 ACCOUNT_ID=$(aws sts get-caller-identity --query "Account" --output text)
