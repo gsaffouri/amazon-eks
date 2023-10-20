@@ -241,7 +241,7 @@ module "key_pair" {
 }
 
 resource "aws_secretsmanager_secret" "key-pair" {
-  name = eks-managed-node-key-pair
+  name = "eks-managed-node-key-pair"
 }
 
 resource "aws_secretsmanager_secret_version" "key-pair" {
