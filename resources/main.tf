@@ -138,6 +138,11 @@ module "eks" {
       min_size     = 2
       max_size     = 3
 
+      # Permissions required for SSM Session Manager
+      iam_role_additional_policies = [
+        "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+      ]
+
       # Remote access cannot be specified with a launch template
       remote_access = {
         ec2_ssh_key               = module.key_pair.key_pair_name
@@ -145,11 +150,6 @@ module "eks" {
       }
     }
   }
-
-  # Permissions required for SSM Session Manager
-  iam_role_additional_policies = [
-    "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
-  ]
 
   tags = local.tags
 }
