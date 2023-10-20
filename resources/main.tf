@@ -123,9 +123,9 @@ module "eks" {
     # and then turn this off after the cluster/node group is created. Without this initial policy,
     # the VPC CNI fails to assign IPs and nodes cannot join the cluster
     # See https://github.com/aws/containers-roadmap/issues/1666 for more context
-    
+
     iam_role_attach_cni_policy = true
-    
+
     # Permissions required for SSM Session Manager
     iam_role_additional_policies = {
       AmazonSSMManagedInstanceCore = "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
@@ -143,8 +143,6 @@ module "eks" {
       desired_size = 2
       min_size     = 2
       max_size     = 3
-
-      
 
       # Remote access cannot be specified with a launch template
       remote_access = {
