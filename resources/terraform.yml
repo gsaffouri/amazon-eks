@@ -52,6 +52,7 @@ on:
   push:
     branches: [ "main" ]
   pull_request:
+    branches: [ "main" ]
   workflow_dispatch:
     inputs:
       logLevel:
@@ -78,7 +79,7 @@ permissions:
 
 jobs:
   terraform:
-    name: 'Terraform'
+    name: 'Deploy Amazon EKS Cluster'
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
