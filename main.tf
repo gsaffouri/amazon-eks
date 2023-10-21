@@ -81,9 +81,9 @@ module "eks" {
     kube-proxy = {
       most_recent = true
     }
-    aws-ebs-csi-driver = {
-      most_recent = true
-    }
+    # aws-ebs-csi-driver = {
+    #   most_recent = true
+    # }
     aws-efs-csi-driver = {
       most_recent = true
     }
