@@ -82,32 +82,36 @@ jobs:
     name: 'Deploy Amazon EKS Cluster'
     runs-on: ubuntu-latest
     steps:
+    
+    # git clone repository
     - name: Checkout code
       uses: actions/checkout@v3
+    
+    # Assume role in AWS account
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v2
       with:
         aws-region: ${{ env.AWS_REGION }}
         role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/github
         role-session-name: GitHub_to_AWS_via_FederatedOIDC
-    # Hello from AWS: WhoAmI
-    - name: Sts GetCallerIdentity
+    
+    # Declare AWS IAM role assumed
+    - name: STS GetCallerIdentity
       run: |
         aws sts get-caller-identity
 
-    # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
+    # Install the latest (fully opensource) version of Terraform CLI
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v2
       with:
         terraform_version: 1.5.7
-        # cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
     
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
 
     # Checks that all Terraform configuration files adhere to a canonical format
-    - name: Terraform Format
+    - name: Linting (Terraform Format)
       run: terraform fmt -check
 
     # Generates an execution plan for Terraform
@@ -115,6 +119,5 @@ jobs:
       run: terraform plan -input=false
 
       # On push to "main", build or change infrastructure according to Terraform configuration files
-      # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
       run: terraform apply -auto-approve -input=false
