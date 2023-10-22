@@ -82,7 +82,7 @@ module "eks" {
       most_recent = true
     }
     aws-ebs-csi-driver = {
-      most_recent = true
+      most_recent                 = true
       resolve_conflicts_on_update = "PRESERVE"
       resolve_conflicts_on_create = "NONE"
       resolve_conflicts           = "NONE"
