@@ -3,6 +3,8 @@
 # Run this script during initial deployment
 # To make/test changes, edit the resources/main.tf file and re-run this script
 
+MSG=$1
+
 # Return the aws account ID
 ACCOUNT_ID=$(aws sts get-caller-identity --query "Account" --output text)
 
@@ -18,7 +20,7 @@ printf "BUCKET_NAME = $BUCKET_NAME\n"
 cp resources/main.tf main.tf
 sed -i "s/UPDATE_ME/$BUCKET_NAME/g" main.tf
 
-# Execute pipeline via pushing to changes to the main branch
+# Execute pipeline via pushing changes to the main branch
 git add .
-git commit -m "Work In Progress..."
+git commit -m "$MSG"
 git push
