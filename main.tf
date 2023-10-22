@@ -83,11 +83,14 @@ module "eks" {
     }
     aws-ebs-csi-driver = {
       most_recent = true
+      resolve_conflicts_on_update = "PRESERVE"
+      resolve_conflicts_on_create = "NONE"
+      resolve_conflicts           = "NONE"
     }
     aws-efs-csi-driver = {
       most_recent                 = true
       resolve_conflicts_on_update = "PRESERVE"
-      resolve_conflicts_on_create = "PRESERVE"
+      resolve_conflicts_on_create = "NONE"
       resolve_conflicts           = "NONE"
     }
     vpc-cni = {
