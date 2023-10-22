@@ -141,9 +141,9 @@ module "eks" {
       use_custom_launch_template = false
 
       disk_size    = 50
-      desired_size = 2
+      desired_size = 4
       min_size     = 2
-      max_size     = 3
+      max_size     = 5
 
       # Remote access cannot be specified with a launch template
       remote_access = {
