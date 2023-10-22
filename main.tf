@@ -76,13 +76,13 @@ module "eks" {
 
   cluster_addons = {
     coredns = {
-      most_recent = true
+      most_recent                 = true
       resolve_conflicts_on_update = "PRESERVE"
       resolve_conflicts_on_create = "NONE"
       resolve_conflicts           = "NONE"
     }
     kube-proxy = {
-      most_recent = true
+      most_recent                 = true
       resolve_conflicts_on_update = "PRESERVE"
       resolve_conflicts_on_create = "NONE"
       resolve_conflicts           = "NONE"
@@ -100,12 +100,13 @@ module "eks" {
       resolve_conflicts           = "NONE"
     }
     vpc-cni = {
-      most_recent              = true
+      most_recent                 = true
       resolve_conflicts_on_update = "PRESERVE"
       resolve_conflicts_on_create = "NONE"
       resolve_conflicts           = "NONE"
-      before_compute           = true
-      service_account_role_arn = module.vpc_cni_irsa.iam_role_arn
+      before_compute              = true
+      service_account_role_arn    = module.vpc_cni_irsa.iam_role_arn
+
       configuration_values = jsonencode({
         env = {
           # Reference docs https://docs.aws.amazon.com/eks/latest/userguide/cni-increase-ip-addresses.html
