@@ -87,7 +87,7 @@ module "eks" {
     aws-efs-csi-driver = {
       most_recent                 = true
       resolve_conflicts_on_update = "PRESERVE"
-      resolve_conflicts           = "None"
+      resolve_conflicts           = "NONE"
     }
     vpc-cni = {
       most_recent              = true
