@@ -46,7 +46,7 @@ name: 'Deploy Amazon EKS Cluster'
 
 env:
   AWS_REGION: "us-east-1"
-  AWS_ACCOUNT_ID: "643254567073" # Ensure the AWS Account is accurate!
+  AWS_ACCOUNT_ID: "828534048297" # Ensure the AWS Account is accurate!
 
 on:
   push:

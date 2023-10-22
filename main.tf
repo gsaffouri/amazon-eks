@@ -9,7 +9,7 @@ terraform {
 
   # Remote state configs
   backend "s3" {
-    bucket         = "terraform-remote-state-0fa2b3b2"
+    bucket         = "terraform-remote-state-176d2014"
     key            = "eks/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
@@ -81,9 +81,9 @@ module "eks" {
     kube-proxy = {
       most_recent = true
     }
-    # aws-ebs-csi-driver = {
-    #   most_recent = true
-    # }
+    aws-ebs-csi-driver = {
+      most_recent = true
+    }
     aws-efs-csi-driver = {
       most_recent = true
     }
