@@ -77,33 +77,18 @@ module "eks" {
   cluster_addons = {
     coredns = {
       most_recent                 = true
-      resolve_conflicts_on_update = "PRESERVE"
-      resolve_conflicts_on_create = "NONE"
-      resolve_conflicts           = "NONE"
     }
     kube-proxy = {
       most_recent                 = true
-      resolve_conflicts_on_update = "PRESERVE"
-      resolve_conflicts_on_create = "NONE"
-      resolve_conflicts           = "NONE"
     }
     aws-ebs-csi-driver = {
       most_recent                 = true
-      resolve_conflicts_on_update = "PRESERVE"
-      resolve_conflicts_on_create = "NONE"
-      resolve_conflicts           = "NONE"
     }
     aws-efs-csi-driver = {
       most_recent                 = true
-      resolve_conflicts_on_update = "PRESERVE"
-      resolve_conflicts_on_create = "NONE"
-      resolve_conflicts           = "NONE"
     }
     vpc-cni = {
       most_recent                 = true
-      resolve_conflicts_on_update = "PRESERVE"
-      resolve_conflicts_on_create = "NONE"
-      resolve_conflicts           = "NONE"
       before_compute              = true
       service_account_role_arn    = module.vpc_cni_irsa.iam_role_arn
 
