@@ -37,7 +37,7 @@ data "aws_caller_identity" "current" {}
 data "aws_availability_zones" "available" {}
 
 locals {
-  name            = "ex-${replace(basename(path.cwd), "_", "-")}"
+  name            = "css-${replace(basename(path.cwd), "_", "-")}"
   cluster_version = "1.27"
   region          = "us-east-1"
 
