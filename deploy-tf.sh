@@ -9,7 +9,7 @@ while getopts 'm:p' OPTION; do
       argM="$OPTARG"
       ;;
     p)
-      argP=$(git add . && git commit \-m '$argM' && git push)
+      argP="push"
       ;;
     ?)
       echo "Usage: $(basename $0) [-m argument] [-d]"
@@ -47,10 +47,14 @@ sed -i "s/UPDATE_ME/$BUCKET_NAME/g" main.tf
 # git commit -m $argM
 # git push
 
-$argP
+# $argP
 
-# if [ -z $argP ]
-# then
-#   printf "argP exists...\n"
-# #   exit 1
-# fi
+if [ -n "$argP" ]
+then
+  printf "argP exists...\n"
+  git status
+  printf "$argM\n"
+  git add .
+  git commit -m "$argM"
+  git push
+fi
