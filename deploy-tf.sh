@@ -3,8 +3,29 @@
 # Run this script to deploy changes to main, which executes GitHub Actions
 # To make/test changes: Edit the files in the resources directory, and re-run this script
 
+while getopts 'm:p' OPTION; do
+  case "$OPTION" in
+    m)
+      argM="$OPTARG"
+      ;;
+    p)
+      argP=$(git add . && git commit \-m '$argM' && git push)
+      ;;
+    ?)
+      echo "Usage: $(basename $0) [-m argument] [-d]"
+      exit 1
+      ;;
+  esac
+done
+
+if [ -z $1 ]
+then
+  printf "Error, this script requires flags to execute!\n"
+  exit 1
+fi
+
 # Commit message variable
-MSG=$1
+# MSG=$argM
 
 # Return the aws account ID
 ACCOUNT_ID=$(aws sts get-caller-identity --query "Account" --output text)
@@ -22,6 +43,14 @@ cp resources/main.tf main.tf
 sed -i "s/UPDATE_ME/$BUCKET_NAME/g" main.tf
 
 # Execute pipeline via pushing changes to the main branch
-git add .
-git commit -m "$MSG"
-git push
+# git add .
+# git commit -m $argM
+# git push
+
+$argP
+
+# if [ -z $argP ]
+# then
+#   printf "argP exists...\n"
+# #   exit 1
+# fi
