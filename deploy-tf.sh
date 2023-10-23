@@ -20,12 +20,6 @@ while getopts 'm:p' OPTION; do
   esac
 done
 
-if [ -z $1 ]
-then
-  printf "Error, this script requires flags to execute!\n"
-  exit 1
-fi
-
 # Return the aws account ID
 ACCOUNT_ID=$(aws sts get-caller-identity --query "Account" --output text)
 
