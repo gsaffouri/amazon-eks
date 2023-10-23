@@ -5,9 +5,11 @@
 
 while getopts 'm:p' OPTION; do
   case "$OPTION" in
+    # Use this option to enter a custom commit message
     m)
       argM="$OPTARG"
       ;;
+    # Use this option to push changes to git
     p)
       argP="push"
       ;;
@@ -24,9 +26,6 @@ then
   exit 1
 fi
 
-# Commit message variable
-# MSG=$argM
-
 # Return the aws account ID
 ACCOUNT_ID=$(aws sts get-caller-identity --query "Account" --output text)
 
@@ -36,24 +35,14 @@ sed -i "s/UPDATE_ME/$ACCOUNT_ID/g" .github/workflows/terraform.yml
 
 # Return remote state s3 bucket name
 BUCKET_NAME=$(aws s3 ls | grep terraform-remote-state | cut -d " " -f 3)
-printf "BUCKET_NAME = $BUCKET_NAME\n"
 
 # Update the main.tf file with the remote state s3 bucket
 cp resources/main.tf main.tf
 sed -i "s/UPDATE_ME/$BUCKET_NAME/g" main.tf
 
-# Execute pipeline via pushing changes to the main branch
-# git add .
-# git commit -m $argM
-# git push
-
-# $argP
-
+# If -p flag is used, execute pipeline via pushing changes to the main branch
 if [ -n "$argP" ]
 then
-  printf "argP exists...\n"
-  git status
-  printf "$argM\n"
   git add .
   git commit -m "$argM"
   git push
