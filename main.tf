@@ -76,21 +76,21 @@ module "eks" {
 
   cluster_addons = {
     coredns = {
-      most_recent                 = true
+      most_recent = true
     }
     kube-proxy = {
-      most_recent                 = true
+      most_recent = true
     }
     aws-ebs-csi-driver = {
-      most_recent                 = true
+      most_recent = true
     }
     aws-efs-csi-driver = {
-      most_recent                 = true
+      most_recent = true
     }
     vpc-cni = {
-      most_recent                 = true
-      before_compute              = true
-      service_account_role_arn    = module.vpc_cni_irsa.iam_role_arn
+      most_recent              = true
+      before_compute           = true
+      service_account_role_arn = module.vpc_cni_irsa.iam_role_arn
 
       configuration_values = jsonencode({
         env = {
