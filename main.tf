@@ -9,7 +9,7 @@ terraform {
 
   # Remote state configs
   backend "s3" {
-    bucket         = "terraform-remote-state-ae7683da"
+    bucket         = "terraform-remote-state-751bd841"
     key            = "eks/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
@@ -152,6 +152,9 @@ module "eks" {
         source_security_group_ids = [aws_security_group.remote_access.id]
       }
     }
+    tags = {
+        ExtraTag = "EKS managed node group complete example"
+      }
   }
 
   tags = local.tags

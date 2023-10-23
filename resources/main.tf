@@ -152,6 +152,9 @@ module "eks" {
         source_security_group_ids = [aws_security_group.remote_access.id]
       }
     }
+    tags = {
+        ExtraTag = "EKS managed node group complete example"
+      }
   }
 
   tags = local.tags
