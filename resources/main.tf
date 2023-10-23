@@ -153,8 +153,8 @@ module "eks" {
       }
     }
     tags = {
-        ExtraTag = "EKS managed node group complete example"
-      }
+      ExtraTag = "EKS managed node group complete example"
+    }
   }
 
   tags = local.tags
