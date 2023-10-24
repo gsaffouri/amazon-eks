@@ -121,7 +121,7 @@ module "eks" {
     instance_types = ["t3.medium"]
 
     autoscaling_group_tags = {
-      "Name" : "${local.name}",
+      "name" : "${local.name}",
     }
 
     # We are using the IRSA created below for permissions
