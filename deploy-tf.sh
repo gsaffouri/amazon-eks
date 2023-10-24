@@ -1,8 +1,6 @@
 #!/bin/bash -e
 
-# Run this script to deploy changes to main, which executes GitHub Actions
-# To make/test changes: Edit the files in the resources directory, and re-run this script
-
+# Adds custom flag(s) to script
 while getopts 'm:p' OPTION; do
   case "$OPTION" in
     # Use this option to enter a custom commit message
