@@ -121,7 +121,7 @@ module "eks" {
     instance_types = ["t3.medium"]
 
     tags = {
-        ExtraTag2 = "example2"
+      ExtraTag2 = "example2"
     }
 
     # We are using the IRSA created below for permissions
