@@ -146,6 +146,10 @@ module "eks" {
       min_size     = 2
       max_size     = 5
 
+      tags = {
+        ExtraTag = "example"
+      }
+
       # Remote access cannot be specified with a launch template
       remote_access = {
         ec2_ssh_key               = module.key_pair.key_pair_name
