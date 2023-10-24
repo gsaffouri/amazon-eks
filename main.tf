@@ -9,7 +9,7 @@ terraform {
 
   # Remote state configs
   backend "s3" {
-    bucket         = "terraform-remote-state-751bd841"
+    bucket         = "terraform-remote-state-008adbff"
     key            = "eks/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
@@ -47,7 +47,6 @@ locals {
   azs      = slice(data.aws_availability_zones.available.names, 0, 3)
 
   tags = {
-    Example    = local.name
     GithubRepo = "terraform-aws-eks"
     GithubOrg  = "terraform-aws-modules"
   }
@@ -149,10 +148,6 @@ module "eks" {
       desired_size = 4
       min_size     = 2
       max_size     = 5
-
-      tags = {
-        ExtraTag1 = "example1"
-      }
 
       # Remote access cannot be specified with a launch template
       remote_access = {
