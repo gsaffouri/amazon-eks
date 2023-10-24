@@ -120,8 +120,8 @@ module "eks" {
     ami_type       = "AL2_x86_64"
     instance_types = ["t3.medium"]
 
-    tags = {
-      ExtraTag2 = "example2"
+    autoscaling_group_tags = {
+      "Name" : "${local.name}",
     }
 
     # We are using the IRSA created below for permissions
