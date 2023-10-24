@@ -120,6 +120,10 @@ module "eks" {
     ami_type       = "AL2_x86_64"
     instance_types = ["t3.medium"]
 
+    tags = {
+        ExtraTag2 = "example2"
+    }
+
     # We are using the IRSA created below for permissions
     # However, we have to deploy with the policy attached FIRST (when creating a fresh cluster)
     # and then turn this off after the cluster/node group is created. Without this initial policy,
@@ -147,7 +151,7 @@ module "eks" {
       max_size     = 5
 
       tags = {
-        ExtraTag = "example"
+        ExtraTag1 = "example1"
       }
 
       # Remote access cannot be specified with a launch template
