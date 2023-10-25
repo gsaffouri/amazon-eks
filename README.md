@@ -1,6 +1,6 @@
 # amazon-eks
 
-[![Linting](https://github.com/chadwickcloudservices/amazon-eks/actions/workflows/ci.yml/badge.svg)](https://github.com/chadwickcloudservices/amazon-eks/actions/workflows/ci.yml)
+[![Linting](https://github.com/chadwickcloudservices/amazon-eks/actions/workflows/linting.yml/badge.svg)](https://github.com/chadwickcloudservices/amazon-eks/actions/workflows/linting.yml)
 [![DEPLOYMENT](https://github.com/chadwickcloudservices/amazon-eks/actions/workflows/deployment.yml/badge.svg)](https://github.com/chadwickcloudservices/amazon-eks/actions/workflows/deployment.yml)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-purple.svg)](https://opensource.org/licenses/Apache-2.0)
 
