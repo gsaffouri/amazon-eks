@@ -25,6 +25,12 @@ done
 # Removes temporary files
 ./cleanup-tf.sh
 
+# Default commit message if one is not provided via the 'm' flag
+if [ -z "$argM" ]
+then
+  argM="Deploying resources..."
+fi
+
 if [ -n "$argF" ]
 then
   # Copies main.tf file
