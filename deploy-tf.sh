@@ -37,8 +37,8 @@ then
   ACCOUNT_ID=$(aws sts get-caller-identity --query "Account" --output text)
 
   # Update the GitHub Actions workflows file
-  cp resources/terraform.yml .github/workflows/
-  sed -i "s/UPDATE_ME/$ACCOUNT_ID/g" .github/workflows/terraform.yml
+  cp resources/deployment.yml .github/workflows/
+  sed -i "s/UPDATE_ME/$ACCOUNT_ID/g" .github/workflows/deployment.yml
 
   # Return remote state s3 bucket name
   BUCKET_NAME=$(aws s3 ls | grep terraform-remote-state | cut -d " " -f 3)
