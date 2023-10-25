@@ -3,14 +3,15 @@
 # Adds custom flag(s) to script
 while getopts 'pm:f' OPTION; do
   case "$OPTION" in
-    # Use this option to enter a custom commit message
     # Use this option to push changes to git
     p)
       argP="push"
       ;;
+    # Use this option to enter a custom commit message
     m)
       argM="$OPTARG"
       ;;
+    # This option is only for the CI GitHub Actions pipeline
     f)
       argF="fmt"
       ;;
