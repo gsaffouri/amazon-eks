@@ -22,12 +22,12 @@ while getopts 'pm:f' OPTION; do
 done
 
 # Removes temporary files
-./cleanup-tf.sh
+./cleanup_tf.sh
 
 if [ -n "$argF" ]
 then
   # Copies main.tf file
-  cp resources/main-local-backend.tf .
+  cp resources/main-local-backend.tf main.tf
 fi
 
 # Executes 'terraform apply' if the '-p' flag is used
