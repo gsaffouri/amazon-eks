@@ -22,7 +22,7 @@ while getopts 'pm:f' OPTION; do
 done
 
 # Removes temporary files
-# ./cleanup-tf.sh
+./cleanup-tf.sh
 
 if [ -n "$argF" ]
 then
@@ -47,9 +47,7 @@ then
   cp resources/main.tf main.tf
   sed -i "s/UPDATE_ME/$BUCKET_NAME/g" main.tf
 
-# # If -p flag is used, execute pipeline via pushing changes to the main branch
-# if [ -n "$argP" ]
-# then
+  # Push changes to main
   git add .
   git commit -m "$argM"
   git push
