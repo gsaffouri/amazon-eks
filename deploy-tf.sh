@@ -27,7 +27,7 @@ done
 if [ -n "$argF" ]
 then
   # Copies main.tf file
-  cp resources/main.tf .
+  cp resources/main-local-backend.tf .
 fi
 
 # Executes 'terraform apply' if the '-p' flag is used
