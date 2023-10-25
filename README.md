@@ -1,15 +1,14 @@
 # amazon-eks
 
 [![Linting](https://github.com/chadwickcloudservices/amazon-eks/actions/workflows/linting.yml/badge.svg)](https://github.com/chadwickcloudservices/amazon-eks/actions/workflows/linting.yml)
-[![DEPLOYMENT](https://github.com/chadwickcloudservices/amazon-eks/actions/workflows/deployment.yml/badge.svg)](https://github.com/chadwickcloudservices/amazon-eks/actions/workflows/deployment.yml)
+[![Deployment](https://github.com/chadwickcloudservices/amazon-eks/actions/workflows/deployment.yml/badge.svg)](https://github.com/chadwickcloudservices/amazon-eks/actions/workflows/deployment.yml)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-purple.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Description
+Deploys Amazon EKS and dependent resources using CICD via GitHub Actions
 
 ### Requirements
 
 - [AWS Provider] ~> 5.20
-- [TLS Provider] ~> 3.0
 - [Terraform] ~> 1.5.0
 - [AWS CLI] ~> 2.7
 
@@ -56,3 +55,22 @@ TBD
 ## Resources
 
 TBD
+
+## External Modules
+
+
+## References
+
+ - [GitHub Actions]
+
+## License
+
+
+© 2023 [Brian Chadwick](https://github.com/chadwickcloudservices)
+Made available under the terms of the [Apache License 2.0].
+
+[github actions]: https://docs.github.com/en/actions/quickstart
+[aws provider]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs
+[terraform]: https://www.terraform.io
+[aws cli]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html
+[Establish AWS CLI authentication]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-authentication.html
