@@ -22,7 +22,7 @@ while getopts 'pm:f' OPTION; do
 done
 
 # Removes temporary files
-./cleanup_tf.sh
+./cleanup-tf.sh
 
 if [ -n "$argF" ]
 then
