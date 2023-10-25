@@ -2,7 +2,7 @@ name: Deployment
 
 env:
   AWS_REGION: "us-east-1"
-  AWS_ACCOUNT_ID: "961820325724" # Ensure the AWS Account is accurate!
+  AWS_ACCOUNT_ID: "449040158477" # Ensure the AWS Account is accurate!
 
 on:
   push:
