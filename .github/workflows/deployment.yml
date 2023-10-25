@@ -1,4 +1,4 @@
-name: 'DEPLOYMENT'
+name: 'Deployment'
 
 env:
   AWS_REGION: "us-east-1"

@@ -1,4 +1,4 @@
-name: 'Deploy Amazon EKS Cluster'
+name: 'Deployment'
 
 env:
   AWS_REGION: "us-east-1"
