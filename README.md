@@ -67,7 +67,7 @@ TBD
 
 | Name | Version |
 | ------------------------------------------------------------------------------------|-------|
-| [oidc-github](https://registry.terraform.io/modules/unfunco/oidc-github/aws/latest) | 1.6.0 |
+| [eks](https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest) | ~> 19.17.2 |
 
 ## References
 
