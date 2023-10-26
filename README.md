@@ -4,7 +4,7 @@
 [![Deployment](https://github.com/chadwickcloudservices/amazon-eks/actions/workflows/deployment.yml/badge.svg)](https://github.com/chadwickcloudservices/amazon-eks/actions/workflows/deployment.yml)
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-purple.svg)](https://opensource.org/licenses/Apache-2.0)
 
-Deploys Amazon EKS and dependent resources using CICD via GitHub Actions
+Deploys Amazon EKS and dependent resources via GitHub Actions
 
 ### Assumptions
 
