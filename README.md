@@ -40,7 +40,7 @@ terraform output -raw aws_s3_bucket
 # 'p' and 'm' flags are used for doing the same as above, with a custom commit message
 ./deploy-tf.sh -p -m "This is my custom commit message"
 
-# 'f' flag is exclusively used by GitHub Actions to execute scheduled linting via terraform fmt
+# 'f' flag is exclusively used by GitHub Actions to execute scheduled linting
 ./deploy-tf.sh -f
 
 # 'u' flag is used to prepare the main.tf file for existing deployments
