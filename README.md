@@ -48,9 +48,9 @@ terraform output -raw aws_s3_bucket
 ./deploy-tf.sh -u
 ```
 
-### Example Output
+### GitHub Actions CI/CD Pipeline (expanded version)
 
-TBD
+![alt text](resources/Amazon%20EKS%20Architecture.png)
 
 ## Resources
 
@@ -80,7 +80,6 @@ TBD
  - [Terraform EKS]
 
 ## License
-
 
 © 2023 [Brian Chadwick](https://github.com/chadwickcloudservices)
 Made available under the terms of the [Apache License 2.0].
