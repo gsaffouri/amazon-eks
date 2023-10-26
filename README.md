@@ -50,7 +50,7 @@ terraform output -raw aws_s3_bucket
 
 ### GitHub Actions CI/CD Pipeline (expanded version)
 
-![alt text](resources/Amazon%20EKS%20Architecture.png)
+![alt text](resources/GitHub%20Actions%20Pipeline.png)
 
 ## Resources
 
