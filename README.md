@@ -19,7 +19,7 @@ Deploys Amazon EKS and dependent resources via GitHub Actions
 ```bash
 ./deploy-tf.sh -p
 ```
-6. deploy-tf.sh full functionality
+6. deploy-tf.sh (extended functionality for informational purposes)
 ```bash
 # 'p' flag is used to deploy resources to an aws account using GitHub Actions
 ./deploy-tf.sh -p
