@@ -54,7 +54,7 @@ terraform output -raw aws_s3_bucket
 
 ### Amazon EKS Architecture (Cluster components)
 
-ADD-IMAGE-HERE
+![alt text](resources/Amazon%20EKS%20Architecture%20-%20Cluster%20components.png)
 
 ### Amazon EKS Architecture (User facing workload example)
 
