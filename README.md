@@ -54,13 +54,9 @@ terraform output -raw aws_s3_bucket
 
 ![alt text](resources/Amazon%20EKS%20Architecture%20-%20Cluster%20components.png)
 
-### Requirements
+## Requirements
 
-- [AWS Provider] ~> 5.20
-- [Terraform] ~> 1.5.0
-- [AWS CLI] ~> 2.7
-
-| Name | Version |
+| Name                                                                                     | Version  |
 | -----------------------------------------------------------------------------------------|----------|
 | [aws provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)        | ~> 5.20  |
 | [terraform](https://developer.hashicorp.com/terraform/downloads)                         | ~> 1.5.7 |
