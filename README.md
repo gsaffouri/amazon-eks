@@ -41,7 +41,7 @@ terraform output -raw aws_s3_bucket
 # 'p' flag is used for initial deployment
 ./deploy-tf.sh -p
 
-# 'f' flag is used by GitHub Actions to terraform fmt
+# 'f' flag is used by GitHub Actions to execute terraform fmt
 ./deploy-tf.sh -f
 
 # 'u' flag is used to prepare the main.tf file for existing deployments
