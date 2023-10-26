@@ -34,10 +34,10 @@ terraform output -raw aws_s3_bucket
 ```
 6. deploy-tf.sh full functionality
 ```bash
-# 'p' flag is used for initial deployment
+# 'p' flag is used to deploy resources to an aws account using GitHub Actions
 ./deploy-tf.sh -p
 
-# 'p' flag is used for initial deployment with a custom commit message
+# 'p' and 'm' flags are used for doing the same as above, with a custom commit message
 ./deploy-tf.sh -p -m "This is my custom commit message"
 
 # 'f' flag is used by GitHub Actions to execute terraform fmt
