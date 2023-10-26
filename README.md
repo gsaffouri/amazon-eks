@@ -61,10 +61,10 @@ terraform output -raw aws_s3_bucket
 - [AWS CLI] ~> 2.7
 
 | Name | Version |
-| ------------------------------------------------------------------------------------|-------|
-| [aws](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) | ~> 5.20 |
-| [terraform](https://developer.hashicorp.com/terraform/downloads) | ~> 1.5.7 |
-| [aws cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) | ~> 2.7 |
+| -----------------------------------------------------------------------------------------|----------|
+| [aws provider](https://registry.terraform.io/providers/hashicorp/aws/latest/docs)        | ~> 5.20  |
+| [terraform](https://developer.hashicorp.com/terraform/downloads)                         | ~> 1.5.7 |
+| [aws cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) | ~> 2.7   |
 
 ## Resources
 
