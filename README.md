@@ -98,10 +98,9 @@ terraform output -raw aws_s3_bucket
 © 2023 [Brian Chadwick](https://github.com/chadwickcloudservices)
 Made available under the terms of the [Apache License 2.0].
 
-[github actions]: https://docs.github.com/en/actions/quickstart
-[terraform]: https://www.terraform.io
-[aws cli]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html
-[establish aws cli authentication]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-authentication.html
 [amazon eks]: https://docs.aws.amazon.com/eks/
 [kubernetes]: https://kubernetes.io/docs/home/
+[github actions]: https://docs.github.com/en/actions/quickstart
 [terraform eks]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/eks_cluster
+[aws cli]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html
+[establish aws cli authentication]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-authentication.html
