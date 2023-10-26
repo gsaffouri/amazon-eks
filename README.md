@@ -52,13 +52,13 @@ terraform output -raw aws_s3_bucket
 
 ![alt text](resources/GitHub%20Actions%20Pipeline.png)
 
-### Amazon EKS Architecture (Cluster components)
-
-![alt text](resources/Amazon%20EKS%20Architecture%20-%20Cluster%20components.png)
-
 ### Amazon EKS Architecture (User facing workload example)
 
 ![alt text](resources/Amazon%20EKS%20Architecture.png)
+
+### Amazon EKS Architecture (Cluster components)
+
+![alt text](resources/Amazon%20EKS%20Architecture%20-%20Cluster%20components.png)
 
 ## Resources
 
