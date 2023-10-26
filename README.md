@@ -59,7 +59,7 @@ terraform output -raw aws_s3_bucket
 
 ![alt text](resources/Amazon%20EKS%20Architecture%20-%20Cluster%20components.png)
 
-## Requirements
+### Requirements
 
 | Name                                                                                     | Version  |
 | -----------------------------------------------------------------------------------------|----------|
@@ -67,7 +67,7 @@ terraform output -raw aws_s3_bucket
 | [terraform](https://developer.hashicorp.com/terraform/downloads)                         | ~> 1.5.7 |
 | [aws cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) | ~> 2.7   |
 
-## Resources
+### Resources
 
 | Name                                                                                                                                                         | Type        |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
@@ -80,20 +80,20 @@ terraform output -raw aws_s3_bucket
 | [aws_availability_zones.available](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/availability_zones)                        | data source |
 | [aws_ami.eks_default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ami)                                                       | data source |
 
-## External Modules
+### External Modules
 
 | Name                                                                              | Version    |
 | ----------------------------------------------------------------------------------|------------|
 | [eks](https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest) | ~> 19.17.2 |
 
-## References
+### References
 
  - [Amazon EKS]
  - [Kubernetes]
  - [GitHub Actions]
  - [Terraform EKS]
 
-## License
+### License
 
 © 2023 [Brian Chadwick](https://github.com/chadwickcloudservices)
 Made available under the terms of the [Apache License 2.0].
