@@ -64,7 +64,6 @@ ADD-IMAGE-HERE
 
 | Name                                                                                                                                                         | Type        |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| [aws_dynamodb_table.backend](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/dynamodb_table)                                     | resource    |
 | [aws_secretsmanager_secret.key-pair](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret)                      | resource    |
 | [aws_secretsmanager_secret_version.key-pair](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/secretsmanager_secret_version)      | resource    |
 | [aws_security_group.remote_access](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group)                               | resource    |
