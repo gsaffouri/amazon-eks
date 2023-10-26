@@ -48,15 +48,15 @@ terraform output -raw aws_s3_bucket
 ./deploy-tf.sh -u
 ```
 
-### GitHub Actions CI/CD Pipeline (expanded version)
+### GitHub Actions CI/CD Pipeline (Expanded version)
 
 ![alt text](resources/GitHub%20Actions%20Pipeline.png)
 
-### Amazon EKS Architecture (low-level)
+### Amazon EKS Architecture (Cluster components)
 
 ADD-IMAGE-HERE
 
-### Amazon EKS Architecture (high-level)
+### Amazon EKS Architecture (User facing workload example)
 
 ![alt text](resources/Amazon%20EKS%20Architecture.png)
 
