@@ -29,9 +29,6 @@ Deploys Amazon EKS and dependent resources via GitHub Actions
 
 # 'f' flag is exclusively used by GitHub Actions to execute scheduled linting
 ./deploy-tf.sh -f
-
-# 'u' flag is used to prepare the main.tf file for existing deployments
-./deploy-tf.sh -u
 ```
 
 ### GitHub Actions CI/CD Pipeline (Expanded version)
