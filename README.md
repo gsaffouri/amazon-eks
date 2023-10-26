@@ -6,12 +6,6 @@
 
 Deploys Amazon EKS and dependent resources using CICD via GitHub Actions
 
-### Requirements
-
-- [AWS Provider] ~> 5.20
-- [Terraform] ~> 1.5.0
-- [AWS CLI] ~> 2.7
-
 ### Assumptions
 
 - You're running this from a *nix Operating System
@@ -60,6 +54,18 @@ terraform output -raw aws_s3_bucket
 
 ![alt text](resources/Amazon%20EKS%20Architecture%20-%20Cluster%20components.png)
 
+### Requirements
+
+- [AWS Provider] ~> 5.20
+- [Terraform] ~> 1.5.0
+- [AWS CLI] ~> 2.7
+
+| Name | Version |
+| ------------------------------------------------------------------------------------|-------|
+| [aws](https://registry.terraform.io/providers/hashicorp/aws/latest/docs) | ~> 5.20 |
+| [terraform](https://developer.hashicorp.com/terraform/downloads) | ~> 1.5.7 |
+| [aws cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) | ~> 2.7 |
+
 ## Resources
 
 | Name                                                                                                                                                         | Type        |
@@ -71,7 +77,7 @@ terraform output -raw aws_s3_bucket
 | [aws_autoscaling_group_tag.cluster_autoscaler_label_tags](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/autoscaling_group_tag) | resource    |
 | [aws_caller_identity.current](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/caller_identity)                                | data source |
 | [aws_availability_zones.available](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/availability_zones)                        | data source |
-| [aws_ami.eks_default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ami)                                                                   | data source |
+| [aws_ami.eks_default](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ami)                                                       | data source |
 
 ## External Modules
 
