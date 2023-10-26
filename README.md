@@ -9,7 +9,7 @@ Deploys Amazon EKS and dependent resources using CICD via GitHub Actions
 ### Assumptions
 
 - You have the proper permissions to deploy the referenced resources in your AWS account
-- You have the above version of Terraform and AWS CLI mentioned in the [Requirements](https://github.com/chadwickcloudservices/amazon-eks#requirements) section installed
+- You have the version of Terraform and AWS CLI mentioned in the [Requirements](https://github.com/chadwickcloudservices/amazon-eks#requirements) section installed
 
 ### Usage
 
