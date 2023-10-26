@@ -99,7 +99,6 @@ terraform output -raw aws_s3_bucket
 Made available under the terms of the [Apache License 2.0].
 
 [github actions]: https://docs.github.com/en/actions/quickstart
-[aws provider]: https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 [terraform]: https://www.terraform.io
 [aws cli]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html
 [establish aws cli authentication]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-authentication.html
