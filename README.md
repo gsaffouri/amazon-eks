@@ -77,8 +77,8 @@ terraform output -raw aws_s3_bucket
 
 ## External Modules
 
-| Name | Version |
-| ------------------------------------------------------------------------------------|-------|
+| Name                                                                              | Version    |
+| ----------------------------------------------------------------------------------|------------|
 | [eks](https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest) | ~> 19.17.2 |
 
 ## References
