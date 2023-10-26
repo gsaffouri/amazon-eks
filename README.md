@@ -52,6 +52,14 @@ terraform output -raw aws_s3_bucket
 
 ![alt text](resources/GitHub%20Actions%20Pipeline.png)
 
+### Amazon EKS Architecture (low-level)
+
+ADD-IMAGE-HERE
+
+### Amazon EKS Architecture (high-level)
+
+![alt text](resources/Amazon%20EKS%20Architecture.png)
+
 ## Resources
 
 | Name                                                                                                                                                         | Type        |
