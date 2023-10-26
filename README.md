@@ -29,13 +29,16 @@ aws s3 ls | grep terraform-remote-state | cut -d " " -f 3
 
 or
 
-# terraform cli
+# terraform cli (while within this repository when terraform is initialized)
 terraform output -raw aws_s3_bucket
 ```
 6. deploy-tf.sh full functionality
 ```bash
 # 'p' flag is used for initial deployment
 ./deploy-tf.sh -p
+
+# 'p' flag is used for initial deployment with a custom commit message
+./deploy-tf.sh -p -m "This is my custom commit message"
 
 # 'f' flag is used by GitHub Actions to execute terraform fmt
 ./deploy-tf.sh -f
