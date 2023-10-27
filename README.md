@@ -39,6 +39,8 @@ Deploys Amazon EKS and dependent resources via GitHub Actions
 
 ![alt text](resources/Amazon%20EKS%20Architecture.png)
 
+![alt text](resources/Copy%20of%20Amazon%20EKS%20Architecture%20-%20Cluster%20components.pdf)
+
 ### Amazon EKS Architecture (Cluster components)
 
 ![alt text](resources/Amazon%20EKS%20Architecture%20-%20Cluster%20components.png)
