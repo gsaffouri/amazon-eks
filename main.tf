@@ -248,6 +248,7 @@ module "key_pair" {
 
 resource "aws_secretsmanager_secret" "key-pair" {
   name                    = local.name
+  description             = "key-pair for managed node group ec2 instances"
   recovery_window_in_days = 0
 }
 
