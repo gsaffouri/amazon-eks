@@ -38,7 +38,7 @@ data "aws_availability_zones" "available" {}
 
 locals {
   name            = "css-${replace(basename(path.cwd), "_", "-")}"
-  cluster_version = "1.27"
+  cluster_version = "1.28"
   region          = "us-east-1"
 
   arn = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"
