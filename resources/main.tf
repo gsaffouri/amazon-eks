@@ -247,7 +247,7 @@ module "key_pair" {
 }
 
 resource "aws_secretsmanager_secret" "key-pair" {
-  name                    = "eks-managed-node-key-pair"
+  name                    = local.name
   recovery_window_in_days = 0
 }
 
