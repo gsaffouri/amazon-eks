@@ -240,7 +240,7 @@ module "key_pair" {
   source  = "terraform-aws-modules/key-pair/aws"
   version = "~> 2.0"
 
-  key_name    = local.name
+  key_name           = local.name
   create_private_key = true
 
   tags = local.tags
