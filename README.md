@@ -17,13 +17,13 @@ Deploys Amazon EKS and dependent resources via GitHub Actions
    1. NOTE: If you don't want to enable the scheduled workflow, ignore steps 2-6
 2. Within your forked repo, navigate to the "Actions" settings
 3. Select "I understand my workflows, go ahead and enable them"
-4. Select the "Linting" workflow on the left pane
-5. Select "Enable workflow"
+4. Select "Enable workflow"
+5. Select the "Linting" workflow on the left pane
 6. Select "Run workflow" > "Run workflow"
    1. This will execute the "Linting" pipeline
 7. Remaining steps will occur within your local development environment
 8. [Establish AWS CLI authentication]
-9. Clone this repository and navigate to the root
+9. Clone your forked version of this repository and navigate to the root
 10. Deploy resources by executing the deploy-tf.sh script with the '-p' flag
 ```bash
 ./deploy-tf.sh -p
