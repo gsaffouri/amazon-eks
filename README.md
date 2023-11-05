@@ -13,13 +13,22 @@ Deploys Amazon EKS and dependent resources via GitHub Actions
 
 ### Usage
 
-1. [Establish AWS CLI authentication]
-2. Clone this repository and navigate to the root
-3. Deploy resources by executing the deploy-tf.sh script with the '-p' flag
+1. "Create a new fork" of this repository
+   1. NOTE: If you don't want to enable the scheduled workflow, ignore steps 2-6
+2. Within your forked repo, navigate to the "Actions" settings
+3. Select "I understand my workflows, go ahead and enable them"
+4. Select the "Linting" workflow on the left pane
+5. Select "Enable workflow"
+6. Select "Run workflow" > "Run workflow"
+   1. This will execute the "Linting" pipeline
+7. Remaining steps will occur within your local development environment
+8. [Establish AWS CLI authentication]
+9. Clone this repository and navigate to the root
+10. Deploy resources by executing the deploy-tf.sh script with the '-p' flag
 ```bash
 ./deploy-tf.sh -p
 ```
-4. deploy-tf.sh (extended functionality for informational purposes)
+11. deploy-tf.sh (extended functionality for informational purposes)
 ```bash
 # 'p' flag is used to deploy resources to an aws account using GitHub Actions
 ./deploy-tf.sh -p
