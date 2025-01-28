@@ -9,7 +9,7 @@ terraform {
 
   # Remote state configs
   backend "s3" {
-    bucket         = "terraform-remote-state-7e282853"
+    bucket         = "terraform-remote-state-45a7b1ae"
     key            = "eks/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
@@ -117,7 +117,7 @@ module "eks" {
   ]
 
   eks_managed_node_group_defaults = {
-    ami_type       = "AL2_x86_64"
+    ami_type       = "BOTTLEROCKET_x86_64"
     instance_types = ["t3.medium"]
 
     autoscaling_group_tags = {
