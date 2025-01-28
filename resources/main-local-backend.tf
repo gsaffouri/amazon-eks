@@ -38,7 +38,7 @@ data "aws_availability_zones" "available" {}
 
 locals {
   name            = "css-${replace(basename(path.cwd), "_", "-")}"
-  cluster_version = "1.28"
+  cluster_version = "1.29"
   region          = "us-east-1"
 
   arn = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root"
@@ -117,7 +117,7 @@ module "eks" {
   ]
 
   eks_managed_node_group_defaults = {
-    ami_type       = "AL2_x86_64"
+    ami_type       = "BOTTLEROCKET_x86_64"
     instance_types = ["t3.medium"]
 
     autoscaling_group_tags = {
