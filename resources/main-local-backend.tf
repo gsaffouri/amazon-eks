@@ -117,7 +117,7 @@ module "eks" {
   ]
 
   eks_managed_node_group_defaults = {
-    ami_type       = "BOTTLEROCKET_x86_64"
+    ami_type       = "BOTTLEROCKET_x86_64_NVIDIA"
     instance_types = ["t3.medium"]
 
     autoscaling_group_tags = {
@@ -248,6 +248,7 @@ module "key_pair" {
 
 resource "aws_secretsmanager_secret" "key-pair" {
   name                    = local.name
+  description             = "key-pair for managed node group ec2 instances"
   recovery_window_in_days = 0
 }
 
