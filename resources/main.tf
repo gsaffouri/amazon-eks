@@ -117,7 +117,7 @@ module "eks" {
   ]
 
   eks_managed_node_group_defaults = {
-    ami_type       = "BOTTLEROCKET_x86_64_NVIDIA"
+    ami_type       = "BOTTLEROCKET_x86_64"
     instance_types = ["t3.medium"]
 
     autoscaling_group_tags = {
