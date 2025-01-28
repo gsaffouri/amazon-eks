@@ -1,0 +1,79 @@
+name: Destroy
+
+env:
+  AWS_REGION: "us-east-1"
+  AWS_ACCOUNT_ID: "UPDATE_ME" # Ensure the AWS Account is accurate!
+
+on:
+  # push:
+  #   branches: [ "main" ]
+  # pull_request:
+  #   branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'
+        required: true
+        default: 'warning'
+        type: choice
+        options:
+        - info
+        - warning
+        - debug
+      tags:
+        description: 'Test scenario tags'
+        required: false
+        type: boolean
+      environment:
+        description: 'Environment to run tests against'
+        type: environment
+        required: true
+
+permissions:
+  id-token: write # This is required for requesting the JWT
+  contents: read # This is required for actions/checkout
+
+jobs:
+  terraform:
+    name: 'Destroy'
+    runs-on: ubuntu-latest
+    steps:
+
+    # git clone repository
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Assume role in AWS account
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v2
+      with:
+        aws-region: ${{ env.AWS_REGION }}
+        role-to-assume: arn:aws:iam::${{ env.AWS_ACCOUNT_ID }}:role/github
+        role-session-name: GitHub_to_AWS_via_FederatedOIDC
+
+    # Declare AWS IAM role assumed
+    - name: STS GetCallerIdentity
+      run: |
+        aws sts get-caller-identity
+
+    # Install the latest (fully opensource) version of Terraform CLI
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.5.7
+
+    # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+    - name: Terraform Init
+      run: terraform init
+
+    # Checks that all Terraform configuration files adhere to a canonical format
+    - name: Linting (Terraform Format)
+      run: terraform fmt -check
+
+    # Generates an execution plan for Terraform
+    - name: Terraform Plan
+      run: terraform plan -input=false
+
+      # Destroy infrastructure according to Terraform configuration files
+    - name: Terraform Destroy
+      run: terraform destroy -auto-approve -input=false

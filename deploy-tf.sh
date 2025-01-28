@@ -46,6 +46,8 @@ then
   # Update the GitHub Actions workflows file
   cp resources/deployment.yml .github/workflows/
   sed -i "s/UPDATE_ME/$ACCOUNT_ID/g" .github/workflows/deployment.yml
+  cp resources/destroy.yml .github/workflows/
+  sed -i "s/UPDATE_ME/$ACCOUNT_ID/g" .github/workflows/destroy.yml
 
   # Return remote state s3 bucket name
   BUCKET_NAME=$(aws s3 ls | grep terraform-remote-state | cut -d " " -f 3)
