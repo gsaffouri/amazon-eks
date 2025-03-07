@@ -9,7 +9,7 @@ terraform {
 
   # Remote state configs
   backend "s3" {
-    bucket         = "terraform-remote-state-c958ad30"
+    bucket         = "terraform-remote-state-a966b714"
     key            = "eks/terraform.tfstate"
     region         = "us-east-1"
     encrypt        = true
