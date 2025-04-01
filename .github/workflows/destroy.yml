@@ -2,7 +2,7 @@ name: Destroy
 
 env:
   AWS_REGION: "us-east-1"
-  AWS_ACCOUNT_ID: "730335365460" # Ensure the AWS Account is accurate!
+  AWS_ACCOUNT_ID: "637423325967" # Ensure the AWS Account is accurate!
 
 on:
   # push:
