@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: test
+  name: test
+  namespace: default
+spec:
+  containers:
+  - image: nginx
+    name: test
+    resources: {}
+  - image: nginx
+    name: test01
+    command: ["sh", "-c", "echo hello world"]
+    volumeMounts: 
+      - name: fortest
+        mountPath: /tmp/
+  volumes:
+    - name: fortest
+      emptyDir: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
